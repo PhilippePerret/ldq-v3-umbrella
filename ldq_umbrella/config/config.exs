@@ -9,6 +9,31 @@
 # move said applications out of the umbrella.
 import Config
 
+config :library,
+  ecto_repos: [Library.Repo],
+  generators: [context_app: false, binary_id: true]
+
+# Configures the endpoint
+config :library, Library.Endpoint,
+  url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: Library.ErrorHTML, json: Library.ErrorJSON],
+    layout: false
+  ],
+  pubsub_server: Library.PubSub,
+  live_view: [signing_salt: "KC2hN237"]
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.17.11",
+  library: [
+    args:
+      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../apps/library/assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
 # Configure Mix tasks and generators
 config :serv_hub,
   ecto_repos: [ServHub.Repo]
