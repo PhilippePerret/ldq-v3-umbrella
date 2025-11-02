@@ -1,0 +1,25 @@
+# Historique de travail - LdQ v3
+
+## 2025-11-02
+
+- Initialisation du projet
+- Création du dossier .claude.ai et du fichier d'historique
+- Architecture umbrella : chaque section = app complète (logique + interface)
+- Conciergerie : éléments partagés (briques UI génériques, système de composition)
+- **CSS : pas de Tailwind, approche économe avec CSS vanilla/custom**
+- **RESPONSIVITÉ OBLIGATOIRE : ordi, tablette, mobile**
+- **JAMAIS DE CODE SAUF DEMANDE EXPLICITE**
+- **RACINE PROPRE : scripts dans dossier scripts/**
+- Création app showcase (mix phx.new.web)
+- Création app serv_hub (mix phx.new.ecto) pour DB et PubSub partagés
+- Configuration showcase pour utiliser ServHub.PubSub
+- Nettoyage config des anciennes apps ldq/ldq_web
+- App showcase fonctionnelle localement
+- Config release dans mix.exs (serv_hub + showcase)
+- Config runtime.exs pour production (DATABASE_URL, SECRET_KEY_BASE, server: true)
+- Nettoyage runtime.exs (imports dupliqués)
+- Script deploy.sh : rsync + compilation distante sur serveur Linux
+- Résolution problème assets : Alwaysdata retire préfixe /ldq
+- Config Plug.Static : at: "/assets" (sans /ldq), from: priv/static/assets
+- Config runtime.exs : url path: "/ldq" pour génération URLs
+- DEPLOIEMENT REUSSI - App fonctionnelle sur https://www.atelier-icare.net/ldq
