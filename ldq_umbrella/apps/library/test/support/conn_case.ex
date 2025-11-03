@@ -20,7 +20,7 @@ defmodule Library.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint Library.Endpoint
+      @endpoint Router.Endpoint
 
       use Library, :verified_routes
 

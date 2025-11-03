@@ -9,6 +9,31 @@
 # move said applications out of the umbrella.
 import Config
 
+config :router,
+  ecto_repos: [Router.Repo],
+  generators: [context_app: false, binary_id: true]
+
+# Configures the endpoint
+config :router, Router.Endpoint,
+  url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: Router.ErrorHTML, json: Router.ErrorJSON],
+    layout: false
+  ],
+  pubsub_server: Router.PubSub,
+  live_view: [signing_salt: "+3OMQPQo"]
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.17.11",
+  router: [
+    args:
+      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../apps/router/assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
 config :library,
   ecto_repos: [Library.Repo],
   generators: [context_app: false, binary_id: true]

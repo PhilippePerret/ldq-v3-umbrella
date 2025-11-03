@@ -101,7 +101,7 @@ defmodule Showcase do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: Showcase.Endpoint,
+        endpoint: Router.Endpoint,
         router: Showcase.Router,
         statics: Showcase.static_paths()
     end

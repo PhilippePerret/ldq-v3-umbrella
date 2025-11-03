@@ -2,9 +2,9 @@ import Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :library, Library.Endpoint,
+config :router, Router.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "uS9xu2GLF36RnZC3QRVasfQ/63pIniVIga7l4bgfryRcUMoqOh51PrnNbnkHyrAm",
+  secret_key_base: "n0B2Kw3vebPHRHuLaBdnS4xHH0UCbs9d6Dwd3q4lJ270Y7+BoE3emsVy6lfM7Ngj",
   server: false
 
 # Configure your database
@@ -19,13 +19,6 @@ config :serv_hub, ServHub.Repo,
   database: "serv_hub_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
-
-# We don't run a server during test. If one is required,
-# you can enable the server option below.
-config :showcase, Showcase.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Jwk5mDr0qB7ZcejBgqmZHRryp0RYgCDjs+X8w2ZCOjGsZT3SP6dHq3ElV8pZFd1P",
-  server: false
 
 # Print only warnings and errors during test
 config :logger, level: :warning

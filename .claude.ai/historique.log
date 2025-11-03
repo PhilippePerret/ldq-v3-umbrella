@@ -10,6 +10,8 @@
 - **RESPONSIVITÉ OBLIGATOIRE : ordi, tablette, mobile**
 - **JAMAIS DE CODE SAUF DEMANDE EXPLICITE**
 - **RACINE PROPRE : scripts dans dossier scripts/**
+- **ALWAYSDATA : UN SEUL PORT DISPONIBLE - pas de choix de port**
+- **JAMAIS PRENDRE DE DÉCISIONS - TOUJOURS DEMANDER INTENTIONS ET VISION**
 - Création app showcase (mix phx.new.web)
 - Création app serv_hub (mix phx.new.ecto) pour DB et PubSub partagés
 - Configuration showcase pour utiliser ServHub.PubSub

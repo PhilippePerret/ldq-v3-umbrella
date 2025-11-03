@@ -1,12 +1,12 @@
-defmodule Library do
+defmodule Router do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use Library, :controller
-      use Library, :html
+      use Router, :controller
+      use Router, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,9 +40,9 @@ defmodule Library do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: Library.Layouts]
+        layouts: [html: Router.Layouts]
 
-      use Gettext, backend: Library.Gettext
+      use Gettext, backend: Router.Gettext
 
       import Plug.Conn
 
@@ -53,7 +53,7 @@ defmodule Library do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {Library.Layouts, :app}
+        layout: {Router.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -83,12 +83,12 @@ defmodule Library do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: Library.Gettext
+      use Gettext, backend: Router.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import Library.CoreComponents
+      import Router.CoreComponents
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -102,8 +102,8 @@ defmodule Library do
     quote do
       use Phoenix.VerifiedRoutes,
         endpoint: Router.Endpoint,
-        router: Library.Router,
-        statics: Library.static_paths()
+        router: Router.Router,
+        statics: Router.static_paths()
     end
   end
 

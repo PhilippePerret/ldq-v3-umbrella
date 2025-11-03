@@ -1,13 +1,13 @@
-defmodule Library.Endpoint do
-  use Phoenix.Endpoint, otp_app: :library
+defmodule Router.Endpoint do
+  use Phoenix.Endpoint, otp_app: :router
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_library_key",
-    signing_salt: "NnGuL5XR",
+    key: "_router_key",
+    signing_salt: "2MJsldVE",
     same_site: "Lax"
   ]
 
@@ -21,9 +21,9 @@ defmodule Library.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :library,
+    from: :router,
     gzip: false,
-    only: Library.static_paths()
+    only: Router.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -31,7 +31,7 @@ defmodule Library.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :library
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :router
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -49,5 +49,5 @@ defmodule Library.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug Library.Router
+  plug Router.Router
 end
