@@ -21,7 +21,7 @@ config :router, Router.Endpoint,
     formats: [html: Router.ErrorHTML, json: Router.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Router.PubSub,
+  pubsub_server: ServHub.PubSub,
   live_view: [signing_salt: "+3OMQPQo"]
 
 # Configure esbuild (the version is required)
@@ -37,17 +37,6 @@ config :esbuild,
 config :library,
   ecto_repos: [Library.Repo],
   generators: [context_app: false, binary_id: true]
-
-# Configures the endpoint
-config :library, Library.Endpoint,
-  url: [host: "localhost"],
-  adapter: Bandit.PhoenixAdapter,
-  render_errors: [
-    formats: [html: Library.ErrorHTML, json: Library.ErrorJSON],
-    layout: false
-  ],
-  pubsub_server: Library.PubSub,
-  live_view: [signing_salt: "KC2hN237"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
@@ -75,17 +64,6 @@ config :serv_hub, ServHub.Mailer, adapter: Swoosh.Adapters.Local
 config :showcase,
   ecto_repos: [Showcase.Repo],
   generators: [context_app: false, binary_id: true]
-
-# Configures the endpoint
-config :showcase, Showcase.Endpoint,
-  url: [host: "localhost"],
-  adapter: Bandit.PhoenixAdapter,
-  render_errors: [
-    formats: [html: Showcase.ErrorHTML, json: Showcase.ErrorJSON],
-    layout: false
-  ],
-  pubsub_server: ServHub.PubSub,
-  live_view: [signing_salt: "1J853caV"]
 
 # Configure esbuild (the version is required)
 config :esbuild,

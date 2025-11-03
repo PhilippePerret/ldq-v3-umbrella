@@ -48,7 +48,8 @@ defmodule Library.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:serv_hub, in_umbrella: true}
     ]
   end
 

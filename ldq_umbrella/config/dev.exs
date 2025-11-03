@@ -54,24 +54,6 @@ config :router, Router.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :router, dev_routes: true
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we can use it
-# to bundle .js and .css sources.
-config :library, Library.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
-  check_origin: false,
-  code_reloader: true,
-  debug_errors: true,
-  secret_key_base: "VXoZB0Q2WSSLuGp9avXYNw3iknBoG1jf55O169yJVo2Gf/ZBsG2HuX2XR47wNWqs",
-  watchers: [
-    esbuild: {Esbuild, :install_and_run, [:library, ~w(--sourcemap=inline --watch)]}
-  ]
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -94,16 +76,6 @@ config :library, Library.Endpoint,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
-
-# Watch static and templates for browser reloading.
-config :library, Library.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/library/(controllers|live|components)/.*(ex|heex)$"
-    ]
-  ]
 
 # Enable dev routes for dashboard and mailbox
 config :library, dev_routes: true
@@ -118,24 +90,6 @@ config :serv_hub, ServHub.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we can use it
-# to bundle .js and .css sources.
-config :showcase, Showcase.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
-  check_origin: false,
-  code_reloader: true,
-  debug_errors: true,
-  secret_key_base: "Kj9c92NRulTammaCSPBtkQdL41BnCPSoX29uH59II0kb0DAFezNqDEvvVJOwXdUL",
-  watchers: [
-    esbuild: {Esbuild, :install_and_run, [:showcase, ~w(--sourcemap=inline --watch)]}
-  ]
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -158,16 +112,6 @@ config :showcase, Showcase.Endpoint,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
-
-# Watch static and templates for browser reloading.
-config :showcase, Showcase.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/showcase/(controllers|live|components)/.*(ex|heex)$"
-    ]
-  ]
 
 # Enable dev routes for dashboard and mailbox
 config :showcase, dev_routes: true
@@ -194,16 +138,6 @@ config :showcase, dev_routes: true
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
-
-# Watch static and templates for browser reloading.
-config :showcase, LdQWeb.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/showcase/(controllers|live|components)/.*(ex|heex)$"
-    ]
-  ]
 
 # Enable dev routes for dashboard and mailbox
 config :showcase, dev_routes: true
