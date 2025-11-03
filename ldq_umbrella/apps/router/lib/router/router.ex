@@ -14,11 +14,10 @@ defmodule Router.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Router do
-    pipe_through :browser
-
-    get "/", PageController, :home
-  end
+scope "/" do
+  forward "/", Showcase.Router
+  forward "/library", Library.Router  
+end
 
   # Other scopes may use custom stacks.
   # scope "/api", Router do

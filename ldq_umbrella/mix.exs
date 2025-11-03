@@ -12,7 +12,7 @@ defmodule LdQ.Umbrella.MixProject do
         ldq_umbrella: [
           applications: [
             serv_hub: :permanent,
-            showcase: :permanent
+            router: :permanent
           ]
         ]
       ]

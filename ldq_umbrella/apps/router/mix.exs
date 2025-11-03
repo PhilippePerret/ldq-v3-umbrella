@@ -49,7 +49,9 @@ defmodule Router.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:bandit, "~> 1.5"},
-      {:serv_hub, in_umbrella: true}
+      {:serv_hub, in_umbrella: true},
+      {:showcase, in_umbrella: true},
+      {:library, in_umbrella: true}
     ]
   end
 
